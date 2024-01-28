@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel = "stylesheet" href = "style.css">
+    <script src="script.js" defer></script>
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Finger+Paint&display=swap" rel="stylesheet"> 
+    <style>
+      *{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;  
+      }
+      :root{
+        
+        --orange: #ffa500;
+        --winning-blocks: #2ccc00;
+      }
+      /* Body Styles */
+
+      body{
+        color: var(--orange);
+        font-family:  cursive;
+      }
+      /* Header Styles */
+
+      h1{
+        font-size: 54px;
+        text-transform: uppercase;
+      }
+      /* Container Styles */
+
+      .container{
+        padding: 40px;
+        height:100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: #3d3d3d;
+      }
+      /* Gameboard Styles */
+
+      #gameboard{
+        width: 300px;
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 40px;
+      }
+      /* Individual Box Styles */
+      .box{
+        height:100px;
+        width:100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--orange);
+        font-size: 120px;
+        border-right:2px solid;
+        border-bottom:2px solid;
+      }
+
+      .box:nth-child(3n){
+        border-right: none;
+      }
+      .box:nth-child(6) ~ .box{
+        border-bottom: none;
+      }
+
+      button {
+        display: inline-block;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        margin-bottom: 75px;
+        margin-right: 10px;
+        background-color: #ffa500; 
+        color: #3d3d3d; 
+        border: 2px solid #ffa500; 
+        border-radius: 5px;
+        font-weight: bold;
+        transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+        cursor: pointer;
+
+      }
+
+      button:hover {
+        background-color: #3d3d3d; 
+        color: #ffa500; 
+      }
+
+      p{
+        background-color: #3d3d3d; 
+        text-align: center;
+        text-color: #ffa500; 
+      }
+      a{
+        color: #ffa500;
+      }
+      a:hover{
+        color: #ff0000;
+      }
+
+
+      /* SWITCHING FROM TICTACTOE TO ROCK PAPER SCISSORS */
+
+
+      body{
+        background-color: #3d3d3d;
+      }
+
+      .selections{
+        display: flex;
+        justify-content: center;
+
+      }
+
+      .selection{
+        background:none;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        font-size: 80px;
+        transition: 300ms;
+      }
+      /* Hover Effect for Selection Button */
+
+      .selection:hover{
+        transform: scale(1.5);
+      }
+      /* Results Section Styles */
+
+      .results{
+        margin-top: 1rem;
+        display:grid;
+        justify-content: center;
+        grid-template-columns: repeat(2, 1fr);
+        justify-items:center ;
+        align-items: center;
+        font-family: cursive;
+      }
+      /* ... styles ... */
+      /* ... Score styles ... */
+
+      .result-score{
+        font-family: cursive;
+        margin-left: .1rem;
+        font-size: 30px;
+        color: #ffa500;
+      }
+
+      .result-selection{
+        font-size: 50px;
+      opacity:.5;
+      }
+      /* Winner's Selection Styles */
+      .result-selection-winner{
+        opacity: 1;
+        font-size: 50px;
+      }
+
+      h1{
+        text-align: center;
+        color: #ffa500;
+        font-family:  cursive;
+        margin-top: 10px;
+        margin-bottom: 50px;
+      }
+      p{
+        margin-top: 80px;
+      }
+      #chooseText{
+        margin-bottom: 27px;
+      }
+
+    </style>
+  </head>
+  <body>
+
+
+
+    
+<div class="container">
+  <h1 id=playerText" >Tic Tac Toe</h1>
+  <button 
+    id="restartButton">Again</button>
+  <div id="gameboard">
+    <div class="box" id="0", onclick = "myFunction()"></div>
+    <div class="box" id="1", onclick = "myFunction()"></div>
+    <div class="box" id="2", onclick = "myFunction()"></div>
+    <div class="box" id="3", onclick = "myFunction()"></div>
+    <div class="box" id="4", onclick = "myFunction()"></div>
+    <div class="box" id="5", onclick = "myFunction()"></div>
+    <div class="box" id="6", onclick = "myFunction()"></div>
+    <div class="box" id="7", onclick = "myFunction()"></div>
+    <div class="box" id="8", onclick = "myFunction()"></div>
+
+
+  </div>
+</div>
+
+
+      </div>
+    </div>
+    <footer>
+       <p>Another Secret Game:</p>
+    </footer>
+    <h1 id="playerText">Rock Paper Scissors</h1>
+     <p id="chooseText">Choose one:</p>
+
+
+    <div class="selections">
+    <button class="selection" data-selection="rock" , onclick = "myFunctionRPS('r')">✊</button>
+    <button class="selection" data-selection="paper" , onclick = "myFunctionRPS('p')">✋</button>
+    <button class="selection" data-selection="scissors" , onclick = "myFunctionRPS('s')">✌️</button>
+    </div>
+    <div class="results">
+      <div>
+        You
+      <span class = "result-score" data-your-score>0</span>
+      </div>
+      <div data-final-column>
+        Computer
+      <span class = "result-score" data-computer-score>0</span>
+      </div>
+
+    </div>
+     <p>Project by Hadeed Khan</p>
+
+    
+
+    
+    <script>
+
+      function myFunction(){
+var x = new Audio("blacc.mp3");
+        x.play();
+        
+      }
+      function myFunctionRPS(a){
+var x = new Audio(`${a}.mp3`);
+        x.play();
+        
+      }
+      
+      let playerText = document.getElementById('playText')
+    let restartButton = document.getElementById('restartButton')
+    let boxes = Array.from(document.getElementsByClassName('box'))
+
+    let winnerIndicator = getComputedStyle(document.body).getPropertyValue('--winning-blocks')
+
+    //console.log(boxes)
+
+    const O_TEXT = 'O'
+    const X_TEXT = 'X'
+    let currentPlayer = X_TEXT
+    let spaces = Array(9).fill(null)
+
+    let count_plays = 0
+
+    const startGame = () => {
+      boxes.forEach(box => box.addEventListener('click', boxClicked))
+    }
+
+    function boxClicked(e) {
+      const id = e.target.id
+      if (!spaces[id] && count_plays < 9) {
+        spaces[id] = currentPlayer
+        e.target.innerText = currentPlayer
+
+        if(playerHasWon() !== false){
+          playerText = `${currentPlayer} has won!`
+          let winning_blocks = playerHasWon()
+          count_plays = 10
+
+        winning_blocks.map(box => boxes[box].style.backgroundColor = winnerIndicator)
+
+        }
+        count_plays++
+
+        currentPlayer = currentPlayer == X_TEXT ? O_TEXT : X_TEXT
+      }
+
+    }
+    const winningCombos = [
+      [0, 1, 2],
+      [3, 4, 5],
+      [6, 7, 8],
+      [0, 3, 6],
+      [1, 4, 7],
+      [2, 5, 8],
+      [0, 4, 8],
+      [2, 4, 6]
+    ]
+
+    function playerHasWon() {
+      for(const condition of winningCombos) {
+        let [a, b, c] = condition
+
+        if(spaces[a] && spaces[a] === spaces[b] && spaces[a] === spaces[c]) {
+          return [a, b, c]
+        }
+      }
+      return false
+    }
+
+    restartButton.addEventListener('click', restart)
+    function restart(){
+      spaces.fill(null)
+      count_plays = 0
+
+      boxes.forEach(box => {box.innerText = ''
+                   box.style.backgroundColor = ''
+                           box.style.color = ''})
+      playerText = 'Tic Tac Toe'
+      currentPlayer = X_TEXT
+    }
+    startGame()
+
+
+
+      //second script
+
+      const selectionButtons = document.querySelectorAll('[data-selection]')
+      const finalColumn = document.querySelector('[data-final-column]')
+      const computerScoreSpan = document.querySelector('[data-computer-score]')
+      const yourScoreSpan = document.querySelector('[data-your-score]')
+      const SELECTIONS = [
+        {
+        name: "rock",
+        emoji: "✊",
+        beats: "scissors"
+        },
+        {
+          name: "paper",
+          emoji: "✋",
+          beats: "rock"
+        },
+        {
+        name: "scissors",
+        emoji: "✌️",
+        beats: "paper"
+        }
+      ]
+
+      selectionButtons.forEach(selectionButton => {
+        selectionButton.addEventListener('click', e => {
+          const selectionName = selectionButton.dataset.selection
+          const selection = SELECTIONS.find(selection => selection.name === selectionName)
+          makeSelection(selection)
+        })
+      })
+
+      function makeSelection(selection){
+        const computerSelection = randomSelection()
+        const yourWinner = isWinner(selection, computerSelection)
+        const computerWinner = isWinner(computerSelection, selection)
+
+        addSelectionResult(computerSelection, computerWinner)
+        addSelectionResult(selection, yourWinner)
+      // console.log(computerSelection)
+        if(yourWinner) incrementScore(yourScoreSpan)
+        if(computerWinner) incrementScore(computerScoreSpan)
+      }
+      function incrementScore(scoreSpan){
+        scoreSpan.innerText=parseInt(scoreSpan.innerText)+1
+      }
+
+
+      function addSelectionResult(selection, winner){
+        const div = document.createElement('div')
+
+        div.innerText = (selection.emoji)
+        div.classList.add('result-selection')
+        if(winner) div.classList.add('winner')
+        finalColumn.after(div)
+      }
+
+      function isWinner(selection, opponentSelection){
+        return selection.beats === opponentSelection.name
+      }
+
+
+      function randomSelection(){
+        const randomIndex = Math.floor(Math.random()* SELECTIONS.length)
+        return SELECTIONS[randomIndex]
+      }
+    </script>
+  </body>
+</html>
